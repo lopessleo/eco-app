@@ -18,7 +18,27 @@ const contact = [BRAND.site && BRAND.site.replace(/^https?:\/\//, ''), BRAND.sup
   .filter(Boolean).join(' · ');
 $('#brand-contact').textContent = contact;
 
-// O Eco desenhado dentro da página (não como imagem): assim ele pisca e acena (app/css/app.css)
+// O mascote troca de cara sozinho e, de vez em quando, acena; tocar nele faz comemorar
+const CARAS_ECO = ['piscando', 'normal', 'feliz', 'normal', 'surpreso', 'apaixonado', 'normal', 'animado'];
+function animaEco(svg) {
+  if (!svg) return;
+  let i = 0;
+  let parado = 0; // tocou: espera a comemoração acabar
+  setInterval(() => {
+    if (parado > 0) { parado--; return; }
+    i = (i + 1) % CARAS_ECO.length;
+    svg.dataset.cara = CARAS_ECO[i];
+    if (i === 2) svg.dataset.pose = 'acenando';
+    else delete svg.dataset.pose;
+  }, 2600);
+  svg.parentElement.addEventListener('click', () => {
+    svg.dataset.cara = 'animado';
+    svg.dataset.pose = 'comemorando';
+    parado = 1;
+  });
+}
+
+// O Eco desenhado dentro da página (não como imagem): assim ele muda de cara e se mexe
 fetch(new URL('../brand/eco.svg', import.meta.url))
   .then((r) => (r.ok ? r.text() : null))
   .then((svg) => {
@@ -30,6 +50,7 @@ fetch(new URL('../brand/eco.svg', import.meta.url))
     box.setAttribute('aria-label', 'Eco, o mascote');
     box.innerHTML = svg;
     img.replaceWith(box);
+    animaEco(box.querySelector('svg'));
   })
   .catch(() => {});
 

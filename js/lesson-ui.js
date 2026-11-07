@@ -23,7 +23,10 @@ export function applyLesson() {
   for (const el of document.querySelectorAll('[data-feature]')) el.classList.toggle('hidden', !l[el.dataset.feature]);
   // o que a placa deste Eco não tem some (ex.: a ECOplus não tem setas nem modo polícia: evita confusão)
   for (const el of document.querySelectorAll('[data-cap]')) if (!temCap(CAP_DA_TELA[el.dataset.cap])) el.classList.add('hidden');
-  $('.lights').classList.toggle('hidden', !l.lights && !l.horn && !l.music);
+  // sobrou pouco botão (placas básicas): o velocímetro cresce e vira conta-giros
+  const botoes = [...document.querySelectorAll('.lights .lb')].filter((b) => getComputedStyle(b).display !== 'none').length; // vale também o que o Estúdio escondeu
+  $('.center').classList.toggle('gauge-grande', botoes <= 2);
+  $('.lights').classList.toggle('hidden', !botoes);
   if (changed) emit('lesson', l);
   // o modo atual saiu da aula: vai para o primeiro liberado
   if (!l.modes.includes(prefs.mode)) emit('setMode', l.modes[0]);

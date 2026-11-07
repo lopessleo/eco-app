@@ -73,39 +73,61 @@ export class Lever extends TouchControl {
 // Pedal com dois jeitos:
 //  'simple' (padrão): segurou = acelera aos poucos até o máximo; soltou = para
 //  'proportional': a altura do dedo no pedal define a aceleração
+// Acelerador por gesto: a partir de onde o dedo encostou, arrastar para cima vai para a frente e para baixo dá ré.
+// value vai de -1 (ré) a +1 (frente); soltar para. Simples: a força cresce com o tempo. Proporcional: com a distância.
+const PEDAL_FOLGA = 0.12; // arrasto mínimo para decidir o sentido (fração do curso)
+const PEDAL_CURSO = 0.4; // curso total: fração da altura do pedal
+
 export class Pedal extends TouchControl {
   constructor(el, mode = 'simple') {
     super(el);
     this.mode = mode;
+    this.onDir = null; // avisa quando o sentido muda
+    this.y0 = 0;
+    this.dir = 0;
+    this.amount = 0;
     this.pressedAt = 0;
-    this.pos = 0;
     this.set(0);
   }
 
   onStart(e) {
-    this.pressedAt = performance.now();
-    this.onMove(e);
+    this.y0 = e.clientY;
+    this._dir(0);
+    this.amount = 0;
+    this.set(0);
   }
 
   onMove(e) {
     const r = this.el.getBoundingClientRect();
-    this.pos = clamp((r.bottom - e.clientY) / r.height, 0.2, 1);
-    if (this.mode === 'proportional') this.set(this.pos);
+    const d = (this.y0 - e.clientY) / (r.height * PEDAL_CURSO);
+    this.amount = clamp(Math.abs(d), 0, 1);
+    this._dir(this.amount < PEDAL_FOLGA ? 0 : Math.sign(d));
+    if (this.mode === 'proportional') this.set(this.dir * this.amount);
   }
 
   onEnd() {
+    this._dir(0);
     this.set(0);
   }
 
-  // chamado a cada quadro: no modo simples a aceleração cresce com o tempo pressionado
+  _dir(d) {
+    if (d === this.dir) return;
+    this.dir = d;
+    this.pressedAt = performance.now();
+    if (d) this.onDir?.(d);
+  }
+
+  // chamado a cada quadro: no modo simples a aceleração cresce com o tempo
   update(now) {
     if (this.mode !== 'simple' || !this.active) return;
-    this.set(clamp(0.35 + (now - this.pressedAt) / 1500, 0, 1));
+    this.set(this.dir ? this.dir * clamp(0.35 + (now - this.pressedAt) / 1500, 0, 1) : 0);
   }
 
   set(v) {
     this.value = v;
-    this.el.style.setProperty('--pos', v.toFixed(3));
+    this.el.style.setProperty('--pos', Math.abs(v).toFixed(3));
+    this.el.classList.toggle('fwd', v > 0);
+    this.el.classList.toggle('rev', v < 0);
   }
 }
 

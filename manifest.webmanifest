@@ -1,6 +1,6 @@
 {
-  "name": "Eco · ecocreator",
-  "short_name": "Eco",
+  "name": "Ecocreator",
+  "short_name": "Ecocreator",
   "description": "O app do kit ecocreator: monte, pilote e programe o carrinho, a casinha, o robô e muito mais",
   "lang": "pt-BR",
   "start_url": "./",

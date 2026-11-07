@@ -8,7 +8,6 @@ import { prefs, savePrefs } from './prefs.js';
 import { $, clamp, params, toast, vibrate } from './util.js';
 
 let seq = 0;
-let gear = 1; // 1 = D (frente), -1 = R (ré)
 let horn = false;
 const INVERTE = (params.get('inverte') ?? '').toLowerCase(); // ?inverte=e, d ou ed: motor ligado ao contrário
 const FOLGA_FREIO_CM = 10; // o app sabe a distância com atraso: freia um pouco antes do Eco
@@ -30,6 +29,7 @@ const leverL = new Lever($('#lever-l'), { onDetent: detent });
 const leverR = new Lever($('#lever-r'), { onDetent: detent });
 const wheel = new SteeringWheel($('#wheel'));
 export const pedal = new Pedal($('#pedal'), prefs.pedal);
+pedal.onDir = () => vibrate(30);
 export const tilt = new TiltSensor();
 export const engine = new EngineSound();
 
@@ -47,7 +47,6 @@ addEventListener('keydown', (e) => {
     KeyE: () => toggleLight('right'),
     KeyH: () => toggleLight('hazard'),
     KeyG: () => toggleLight('police'),
-    KeyR: toggleGear,
     Space: () => S.lesson.horn && classDelta.horns++,
     // teclas 1..5: modos (só os que a aula libera)
     Digit1: () => setMode('tank'),
@@ -64,12 +63,12 @@ addEventListener('blur', () => keys.clear());
 
 // Modo volante/inclinação: comporta-se como carro (parado, virar o volante não faz nada).
 // A roda de dentro da curva desacelera até parar no volante todo virado (sens = 1).
-export function mixCar(throttle, steer, gearDir, sens) {
+export function mixCar(throttle, steer, sens) {
   const s = clamp(steer, -1, 1) * sens;
   const inner = throttle * (1 - Math.abs(s));
   const left = s > 0 ? throttle : inner; // virando à direita, a roda esquerda é a de fora
   const right = s > 0 ? inner : throttle;
-  return [left * gearDir, right * gearDir];
+  return [left, right];
 }
 
 function computeMotors() {
@@ -80,14 +79,14 @@ function computeMotors() {
     return [key('KeyW') - key('KeyS'), key('ArrowUp') - key('ArrowDown')];
   }
   let throttle = pedal.value;
-  if (!pedal.active) throttle = Math.max(key('ArrowUp'), key('KeyW'));
+  if (!pedal.active) throttle = Math.max(key('ArrowUp'), key('KeyW')) - Math.max(key('ArrowDown'), key('KeyS'));
   const useTilt = prefs.mode === 'tilt' && tilt.available;
   let steer = useTilt ? tilt.value : wheel.value;
   if (!wheel.active && !useTilt) {
     const k = key('ArrowRight') + key('KeyD') - key('ArrowLeft') - key('KeyA');
     if (k) steer = clamp(k, -1, 1);
   }
-  return mixCar(throttle, steer, gear, prefs.steerSens / 100);
+  return mixCar(throttle, steer, prefs.steerSens / 100);
 }
 
 function driveFlags() {
@@ -202,16 +201,7 @@ document.addEventListener('pointerdown', (e) => {
   if (!e.target.closest('#music-menu, #btn-music')) musicMenu.classList.add('hidden');
 });
 
-// ---------- Câmbio e modos ----------
-
-function toggleGear() {
-  gear = -gear;
-  const g = $('#gear');
-  g.classList.toggle('reverse', gear < 0);
-  g.innerHTML = gear > 0 ? 'D<small>Frente</small>' : 'R<small>Ré</small>';
-  vibrate(30);
-}
-$('#gear').addEventListener('click', toggleGear);
+// ---------- Modos ----------
 
 on('setMode', (m) => setMode(m));
 on('lesson', (l) => { engine.enabled = l.engine; });
