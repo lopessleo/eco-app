@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 250">
+  <!-- Eco, o mascote do kit ecocreator: o "cérebro" que vira carrinho, casinha, robô… Folha da marca na antena e a
+       chave na mão. As classes (olhos, eco-corpo, eco-folha, eco-braco) são usadas para animar no app (app/css/app.css). -->
+  <ellipse cx="160" cy="238" rx="92" ry="9" fill="#000" opacity=".18"/>
+  <!-- antena com a folha -->
+  <g class="eco-folha">
+    <path d="M160 74 L160 44" stroke="#2f6b46" stroke-width="6" stroke-linecap="round"/>
+    <path d="M160 46 C146 22 166 4 198 6 C200 32 186 48 160 46Z" fill="#538C5F"/>
+    <path d="M163 42 C172 30 182 22 192 14" stroke="#cfe8d6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <g class="eco-corpo">
+    <!-- rodinhas -->
+    <rect x="106" y="198" width="40" height="30" rx="10" fill="#2d3436"/>
+    <rect x="174" y="198" width="40" height="30" rx="10" fill="#2d3436"/>
+    <!-- braço esquerdo (acenando) -->
+    <g class="eco-braco"><rect x="58" y="112" width="24" height="58" rx="12" fill="#3fbf86" stroke="#fff" stroke-width="5" transform="rotate(28 82 120)"/></g>
+    <!-- braço direito com a chave -->
+    <rect x="238" y="118" width="24" height="56" rx="12" fill="#3fbf86" stroke="#fff" stroke-width="5" transform="rotate(-18 238 124)"/>
+    <g transform="translate(262 112) rotate(18)" fill="#D8D7D5">
+      <rect x="-5" y="-2" width="10" height="34" rx="5"/>
+      <path d="M-13 -4 L-13 -16 Q-13 -25 -5 -26 L-5 -14 L5 -14 L5 -26 Q13 -25 13 -16 L13 -4 Q13 5 0 5 Q-13 5 -13 -4Z"/>
+    </g>
+    <!-- corpo -->
+    <rect x="88" y="72" width="144" height="138" rx="44" fill="#3fbf86" stroke="#fff" stroke-width="6"/>
+    <!-- tela do rosto -->
+    <rect x="106" y="92" width="108" height="70" rx="24" fill="#16302a"/>
+    <g class="olhos" fill="#7dffc4">
+      <ellipse cx="139" cy="121" rx="11" ry="12"/>
+      <ellipse cx="181" cy="121" rx="11" ry="12"/>
+    </g>
+    <circle cx="143" cy="116" r="3.5" fill="#fff"/><circle cx="185" cy="116" r="3.5" fill="#fff"/>
+    <path d="M142 141 Q160 155 178 141" fill="none" stroke="#7dffc4" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="118" cy="140" rx="7" ry="4.5" fill="#ff8fa3" opacity=".75"/>
+    <ellipse cx="202" cy="140" rx="7" ry="4.5" fill="#ff8fa3" opacity=".75"/>
+    <!-- peito: luz e as "portas" do kit -->
+    <circle cx="160" cy="184" r="8" fill="#ffd23f" stroke="#f7931e" stroke-width="3"/>
+    <rect x="114" y="178" width="22" height="11" rx="4" fill="#2a8f63"/><rect x="184" y="178" width="22" height="11" rx="4" fill="#2a8f63"/>
+  </g>
+</svg>

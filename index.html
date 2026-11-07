@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0e1218">
+  <title>Eco · ecocreator</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/cenarios.css">
+  <link rel="stylesheet" href="css/program.css">
+  <!-- ajustes feitos no Estúdio de interface (lançador): por último, vencem o resto -->
+  <link rel="stylesheet" href="ajustes.css">
+</head>
+<body>
+  <!-- Abertura: o logo da ecocreator aparece e some (uma vez por sessão; toque pula; dentro do emulador não aparece) -->
+  <div id="boot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="boot-logo" role="img" aria-label="ecocreator" viewBox="-4 -4 500 298"><g class="simbolo" transform="translate(160.5 0) scale(.95)"><defs><path id="ls" d="M6.0 75.9 9.0 77.7 12.8 79.6 19.9 82.6 29.1 85.4 34.3 86.7 39.6 87.6 45.4 88.4 53.9 89.0 92.9 90.0 99.9 90.4 102.0 90.7 102.2 90.3 102.1 89.4 100.9 85.7 93.6 68.5 89.1 56.6 87.6 51.6 86.8 48.4 86.0 42.4 86.0 38.2 86.2 35.5 86.7 32.8 87.9 29.0 89.0 26.5 91.0 22.8 93.6 19.1 96.8 15.5 101.7 10.8 108.9 5.3 113.2 2.6 116.2 0.9 118.5 0.1 119.2 0.0 119.7 0.2 120.1 1.0 120.2 2.8 119.8 7.6 118.4 14.4 114.7 28.8 113.4 34.8 112.8 39.4 112.8 41.3 113.2 42.8 114.2 44.9 115.9 47.2 118.4 49.6 122.4 52.5 125.8 54.4 129.0 55.7 131.8 56.5 135.8 57.0 139.7 57.0 141.7 56.8 145.4 56.1 148.7 54.9 150.2 54.1 152.2 52.7 153.3 51.7 154.8 49.6 156.0 46.0 157.7 38.8 160.8 22.4 161.9 18.2 163.0 15.6 164.1 14.2 164.9 14.0 165.6 14.2 166.4 14.7 167.8 15.9 170.3 19.2 173.4 24.7 175.3 29.0 177.0 33.4 178.4 37.8 179.4 42.5 179.9 47.2 179.9 51.7 179.7 53.9 178.5 59.6 177.2 63.1 175.6 66.7 171.9 73.5 163.8 86.2 160.5 91.8 158.1 96.6 156.4 101.2 155.3 105.9 154.5 112.6 154.2 135.7 153.7 142.2 153.0 142.1 150.9 140.9 139.4 132.8 131.8 128.2 126.5 125.4 121.2 122.9 113.0 119.6 104.1 116.7 97.5 115.6 87.6 114.4 81.9 114.0 76.8 113.9 75.6 114.0 75.3 114.2 78.1 115.6 86.3 118.7 92.5 121.3 100.7 125.2 109.1 129.5 117.2 134.1 122.1 137.1 134.3 145.5 146.6 155.0 151.1 159.0 152.9 161.0 152.9 161.6 151.6 162.4 145.5 164.8 137.6 167.3 130.2 169.4 123.0 171.1 117.6 172.0 111.4 172.8 101.2 173.5 91.0 173.7 84.7 173.5 79.1 173.1 74.5 172.5 68.6 171.2 63.0 169.6 57.6 167.7 52.5 165.5 47.6 163.0 42.9 160.2 38.5 157.1 34.3 153.7 30.3 149.9 24.8 143.7 21.4 139.2 18.3 134.4 15.4 129.3 11.4 120.9 7.6 110.8 4.9 101.8 2.2 90.0 0.9 81.1 0.0 72.0 6.0 75.9Z"/><clipPath id="lch"><path d="M80 -5 L190 -5 L190 116 L152 116 Q128 101 99 93 L80 80Z"/></clipPath><clipPath id="lfo"><path d="M-10 -10 L80 -10 L80 84 L99 97 Q128 105 152 120 L190 120 L190 210 L-10 210Z"/></clipPath></defs><use href="#ls" class="folha" fill="#538C5F" clip-path="url(#lfo)"/><use href="#ls" class="chave" fill="#D8D7D5" clip-path="url(#lch)"/></g><g class="nome" transform="translate(0 179.3)"><path class="eco" fill="#538C5F" fill-rule="evenodd" d="M45.0 87.2 44.8 91.9 44.3 95.7 43.7 98.0 42.3 100.9 40.5 103.5 37.9 106.1 35.5 107.7 31.4 109.6 26.8 110.6 23.4 110.8 18.0 110.5 13.2 109.5 11.1 108.7 8.1 106.8 5.3 104.3 3.0 101.5 1.9 99.5 1.1 97.2 0.5 90.7 0.0 69.9 0.2 45.6 0.6 36.6 1.1 32.1 2.5 28.8 4.2 26.1 5.1 24.9 7.3 22.9 8.5 22.1 9.8 21.3 12.8 20.2 18.1 19.2 24.1 19.0 27.7 19.3 30.8 19.9 34.9 21.4 38.3 23.7 41.0 26.8 42.5 29.3 43.6 31.7 44.4 34.2 44.7 36.8 45.0 44.4 45.0 70.9 16.5 70.9 16.2 83.1 16.3 88.2 16.9 91.6 17.2 92.4 18.0 93.7 18.5 94.1 19.8 94.7 22.5 95.0 24.8 94.7 26.1 94.2 27.5 92.9 28.2 91.7 28.7 90.2 28.9 88.3 29.0 81.0 45.0 81.0 45.0 87.2Z M29.0 47.2 28.7 40.2 28.1 37.7 27.4 36.3 26.4 35.4 25.1 34.9 23.5 34.6 20.7 34.7 19.2 35.1 18.1 35.8 17.2 36.9 16.6 38.6 16.3 40.8 16.1 43.6 16.0 56.0 29.0 56.0 29.0 47.2Z M91.5 80.8 99.8 80.8 100.0 81.0 100.2 82.0 100.3 84.9 99.9 89.6 99.2 94.7 98.5 98.3 97.9 100.3 96.4 102.8 94.6 104.8 92.6 106.5 90.2 107.9 88.5 108.7 84.9 110.0 81.0 110.7 76.9 110.9 74.8 110.8 70.5 110.1 67.8 109.2 65.3 108.2 62.1 106.1 59.5 103.5 58.2 101.5 57.0 99.1 56.1 96.5 55.9 95.1 55.3 84.8 55.1 70.0 55.0 34.4 58.7 27.1 60.7 24.5 63.3 22.6 68.0 20.3 71.5 19.3 74.7 19.0 82.8 19.3 85.5 19.6 87.6 20.1 90.6 21.5 93.9 23.8 96.3 26.5 98.1 29.7 99.0 32.2 99.8 36.5 100.0 39.8 100.0 49.1 84.5 48.5 84.1 40.8 83.5 37.8 83.0 36.8 82.4 36.0 80.4 34.9 78.3 34.4 76.4 34.5 74.4 35.5 71.0 38.1 71.2 81.6 71.6 89.0 72.1 91.4 72.7 93.1 73.8 94.4 75.4 94.9 79.0 94.9 81.0 94.2 82.5 92.9 83.2 91.7 83.6 90.2 84.0 87.4 84.0 81.2 91.5 80.8Z M125.4 110.0 123.4 109.5 120.6 108.2 118.8 107.1 116.4 105.2 114.3 103.0 113.2 101.5 112.0 99.2 111.3 96.8 110.8 93.0 110.5 88.1 110.2 66.2 110.2 47.5 110.6 37.0 111.2 33.3 112.8 29.1 115.0 25.7 116.1 24.5 118.0 22.9 120.9 21.2 124.2 20.0 127.9 19.3 134.2 19.1 138.3 19.4 141.8 20.0 144.9 21.1 147.5 22.5 149.7 24.3 151.5 26.6 153.1 29.3 154.2 32.4 154.8 35.3 155.1 38.0 155.5 49.2 155.5 79.0 155.2 88.7 154.9 94.3 154.2 98.2 153.5 99.9 152.0 102.3 149.3 105.1 147.8 106.3 145.1 107.9 142.2 109.2 140.2 109.8 135.8 110.7 132.4 110.9 130.1 110.8 125.4 110.0Z M126.0 64.6 126.2 85.9 126.6 90.2 127.4 92.3 129.2 93.9 130.4 94.6 131.8 94.9 133.1 95.0 134.5 94.7 136.4 93.8 138.0 92.3 139.2 90.3 139.7 87.7 139.9 83.1 139.5 45.1 139.1 39.7 138.8 38.0 138.3 37.0 136.6 35.5 135.0 34.5 133.5 34.1 132.5 34.1 131.5 34.4 129.8 35.2 126.0 38.1 126.0 64.6Z"/><path class="creator" fill="#D8D7D5" fill-rule="evenodd" d="M210.4 88.8 210.1 93.9 209.1 98.2 208.1 100.6 206.1 103.8 203.3 106.4 200.0 108.4 197.6 109.3 193.2 110.2 186.9 110.7 182.5 110.5 178.9 109.6 174.9 107.8 172.0 105.8 169.7 103.4 167.4 99.4 166.3 96.0 165.7 91.5 165.4 83.7 165.1 62.4 165.2 49.3 165.4 41.4 165.8 36.8 166.4 33.5 167.3 30.8 168.4 28.3 169.3 26.8 171.5 24.3 174.1 22.2 177.2 20.7 180.8 19.6 185.9 19.0 191.7 19.2 196.8 20.0 200.0 21.2 201.8 22.2 203.5 23.5 205.2 25.1 206.6 26.7 208.3 29.5 209.6 32.8 210.7 38.0 211.0 42.4 211.0 49.0 195.0 49.0 195.0 43.0 194.6 40.0 193.7 37.7 192.3 36.0 191.1 35.3 189.7 34.8 188.0 34.7 186.4 34.8 184.4 35.6 183.3 36.4 182.5 37.4 181.8 38.9 181.5 40.6 181.1 48.6 181.4 80.4 181.7 87.7 182.1 91.2 182.6 92.6 183.1 93.3 184.4 94.1 185.6 94.6 187.5 95.0 188.8 95.0 190.9 94.6 192.0 94.0 193.2 92.6 194.1 90.6 194.7 87.7 195.5 80.8 210.5 80.8 210.4 88.8Z M302.0 87.2 301.8 91.8 301.3 95.6 300.3 98.9 298.9 101.7 296.9 104.3 294.0 106.9 291.5 108.4 287.2 110.0 282.3 110.7 278.8 110.8 273.2 110.2 269.2 109.2 266.1 107.5 264.1 106.0 262.3 104.3 260.7 102.5 259.4 100.5 258.5 98.5 258.1 97.2 257.6 92.5 257.2 83.3 257.0 58.9 257.5 38.4 257.9 33.4 258.5 30.9 259.9 28.1 262.7 24.7 266.0 21.9 268.8 20.5 271.1 19.8 273.9 19.3 278.3 18.9 282.7 19.1 286.9 19.8 289.4 20.6 291.8 21.6 294.4 23.1 296.4 24.6 297.6 26.0 298.7 27.8 300.3 31.0 301.2 33.3 301.7 36.2 302.0 41.4 302.0 71.1 277.2 70.9 274.8 70.9 274.0 71.1 273.5 71.8 273.3 72.7 273.1 77.0 273.1 86.1 273.6 90.8 274.6 93.2 275.6 94.2 277.0 94.7 278.7 95.0 281.2 94.9 282.5 94.5 283.6 93.8 284.9 92.3 285.4 90.9 285.8 89.3 286.0 87.3 286.0 81.0 302.0 81.0 302.0 87.2Z M286.0 47.2 285.7 40.2 285.1 37.7 284.4 36.3 283.4 35.4 282.1 34.9 280.5 34.6 277.7 34.7 276.2 35.1 275.1 35.8 274.2 36.9 273.6 38.6 273.3 40.8 273.1 43.6 273.0 56.0 286.0 56.0 286.0 47.2Z M351.5 109.0 348.1 108.9 347.0 108.7 346.2 108.3 345.3 106.9 343.3 101.7 342.9 101.6 342.1 102.2 340.3 104.8 338.6 106.7 336.7 108.3 334.5 109.5 331.0 110.5 328.5 110.7 326.0 110.5 323.5 109.8 321.2 108.8 319.2 107.5 317.4 105.9 316.4 104.7 315.1 102.6 314.4 101.0 313.0 96.2 312.5 92.8 312.1 87.6 312.2 81.6 312.5 76.2 313.0 71.8 313.7 68.9 314.6 66.4 315.8 64.3 317.3 62.5 320.1 60.2 322.1 59.0 324.2 58.3 326.8 58.1 330.5 58.3 336.1 58.8 340.6 59.6 341.0 59.2 341.2 58.4 341.3 53.8 341.0 42.3 340.5 38.0 340.1 37.0 339.4 36.0 337.1 34.6 335.4 34.2 333.8 34.3 331.6 35.3 330.4 36.5 329.5 38.0 328.9 39.9 328.4 44.5 313.0 45.1 313.0 38.3 313.2 35.9 313.8 32.7 315.1 28.8 316.6 26.4 319.1 23.6 321.3 22.0 324.0 20.7 328.1 19.6 332.8 19.1 338.3 19.2 344.0 20.0 347.3 21.3 349.9 23.0 352.3 25.2 354.2 27.8 355.2 29.7 356.0 32.2 356.7 41.5 357.0 61.9 357.0 109.0 351.5 109.0Z M339.2 93.3 340.1 92.2 340.4 91.4 340.9 88.6 341.0 79.6 340.8 77.5 340.3 76.2 339.6 75.2 338.6 74.4 337.4 73.8 336.0 73.5 334.6 73.4 332.5 73.6 331.3 74.1 330.2 74.7 329.3 75.5 328.8 76.5 328.5 78.2 328.1 81.7 328.2 88.4 328.4 90.1 329.0 91.7 330.0 93.0 331.0 93.8 332.1 94.4 334.0 94.9 335.8 94.9 337.1 94.6 338.2 94.1 339.2 93.3Z M417.7 109.6 414.8 108.6 413.0 107.7 410.6 106.0 409.3 104.7 408.0 103.1 406.4 100.5 405.4 98.1 404.7 95.5 404.4 91.3 404.2 84.6 404.1 56.7 404.3 41.6 405.0 33.4 405.8 29.8 406.3 28.4 407.3 26.7 409.4 24.4 413.3 21.7 417.1 20.0 420.2 19.3 423.9 19.1 430.3 19.3 435.1 20.0 437.7 20.7 440.0 21.7 441.9 23.1 443.6 24.8 445.1 26.9 447.4 31.1 448.2 33.7 448.7 36.7 448.9 40.3 449.0 56.5 448.9 82.3 448.6 89.7 448.3 94.0 447.8 96.5 447.1 99.1 445.5 102.2 443.4 104.9 440.2 107.3 438.6 108.0 435.2 109.3 429.5 110.5 423.6 110.6 419.6 110.1 417.7 109.6Z M431.5 92.8 432.1 91.4 432.5 88.8 432.9 79.2 432.9 52.0 432.7 42.5 432.3 37.6 431.1 36.2 429.7 35.3 428.1 34.7 426.4 34.5 424.7 34.6 423.2 35.1 421.9 35.9 420.9 37.2 420.6 39.8 420.3 44.9 420.0 62.3 420.1 82.6 420.4 87.9 420.7 91.0 421.2 92.4 422.2 93.6 423.3 94.4 425.3 94.9 427.4 94.9 428.8 94.6 430.6 93.7 431.5 92.8Z M228.6 108.8 223.2 108.9 221.0 108.8 220.9 20.5 228.6 20.5 230.3 20.7 231.0 21.0 231.7 21.5 232.5 22.6 235.2 28.3 238.1 23.8 239.2 22.5 240.6 21.5 242.9 20.2 244.6 19.6 248.4 19.0 254.0 19.0 254.0 33.8 243.4 34.3 241.3 34.6 240.1 35.0 239.2 35.6 238.4 36.5 237.8 37.7 237.0 41.7 236.5 49.9 236.1 108.5 228.6 108.8Z M371.0 71.5 371.0 34.0 360.0 34.0 360.0 20.0 371.0 20.0 371.0 0.0 387.0 0.0 387.0 10.0 387.0 20.0 398.0 20.0 398.0 34.0 387.0 34.0 387.0 109.0 371.0 109.0 371.0 71.5Z M459.3 64.7 459.5 20.5 466.9 20.1 468.5 20.2 469.2 20.5 469.8 21.0 470.7 22.2 473.7 28.5 476.3 23.8 478.1 22.0 480.3 20.6 482.9 19.7 484.8 19.2 486.9 19.0 492.0 19.0 492.0 34.0 485.5 34.0 482.7 34.2 480.3 34.7 477.8 35.6 476.1 37.0 475.8 37.4 475.7 38.0 475.3 45.1 475.1 60.0 475.0 109.0 459.0 109.0 459.3 64.7Z"/></g></svg></div>
+  <script>
+    (function () {
+      var b = document.getElementById('boot'), visto = false;
+      if (window.top !== window) return b.remove();
+      try { visto = sessionStorage.getItem('boot') === '1'; sessionStorage.setItem('boot', '1'); } catch (e) {}
+      if (visto) return b.remove();
+      var fim = function () { if (!b.isConnected || b.classList.contains('sai')) return; b.classList.add('sai'); setTimeout(function () { b.remove(); }, 450); };
+      b.addEventListener('click', fim);
+      setTimeout(fim, matchMedia('(prefers-reduced-motion: reduce)').matches ? 700 : 2100);
+    })();
+  </script>
+  <!-- Página inicial: o app da criança não tem configurações (quem configura é o técnico e o professor) -->
+  <section id="home" class="screen active">
+    <header class="brandbar">
+      <img class="brand-logo" src="brand/logo-horizontal.png" alt="ecocreator">
+      <span class="spacer"></span>
+      <button id="btn-install" class="small hidden">📲 Instalar app</button>
+    </header>
+
+    <div class="hero">
+      <img class="hero-img eco" src="brand/eco.svg" alt="Eco, o mascote">
+      <div class="hero-text">
+        <h1 data-brand="product"></h1>
+        <p data-brand="tagline" class="tagline"></p>
+        <button id="btn-ble" class="big primary">🔵 Conectar o Eco</button>
+        <p id="home-msg" class="msg" role="status"></p>
+      </div>
+    </div>
+
+    <section id="instalar" class="block-section instalar hidden">
+      <img src="icons/icon-192.png" alt="">
+      <div><b>Instale o Eco neste aparelho</b><br><span class="muted">Abre em tela cheia, direto da tela inicial, e funciona sem internet.</span></div>
+      <button id="instalar-sim" class="primary">📲 Instalar</button>
+      <button id="instalar-nao" class="small">Agora não</button>
+    </section>
+
+    <section class="block-section class-box">
+      <div>
+        <h2>🏫 Sala de aula</h2>
+        <p id="class-status" class="muted"></p>
+      </div>
+      <button id="btn-class" class="small" data-recurso="salaWifi">🏫 Entrar na sala</button>
+    </section>
+
+    <section class="block-section">
+      <h2>Como usar</h2>
+      <ol class="steps">
+        <li><span>🔋</span><div><b>Ligue o Eco</b><br>Conecte a powerbank na placa. As luzes piscam quando ele está pronto.</div></li>
+        <li><span>📡</span><div><b>Conecte</b><br>Toque em <i>Conectar o Eco</i> e escolha o seu (o número e a cor estão na placa).</div></li>
+        <li><span>🧩</span><div><b>Conte o que montou</b><br>Carrinho, casinha, elevador, piano… O app muda para o que você montou.</div></li>
+        <li><span>🎮</span><div><b>Divirta-se!</b><br>Pilote, programe, ligue as luzes e os motores, como o professor combinou.</div></li>
+      </ol>
+    </section>
+
+    <section class="block-section">
+      <h2>Precisa de ajuda?</h2>
+      <details class="faq"><summary>O Eco não aparece na lista</summary>
+        <p>Confira se o Bluetooth do celular está ligado e se o Eco está com a powerbank ligada (as luzes piscam ao ligar).
+        Chegue mais perto. Se outro celular estiver conectado nele, ele não aparece até ser desconectado.</p></details>
+      <details class="faq"><summary>Pediu permissão de Bluetooth ou localização</summary>
+        <p>Toque em <i>Permitir</i>: o Android usa essa permissão para achar o Eco. O app não guarda onde você está.</p></details>
+      <details class="faq"><summary>Funciona no iPhone?</summary>
+        <p>O Safari não tem Bluetooth para sites. No iPhone, use o navegador gratuito <b>Bluefy</b> e abra este mesmo endereço nele.</p></details>
+    </section>
+
+    <details id="emu-box" class="block-section dev hidden">
+      <summary>🛠️ Emulador no PC (desenvolvimento)</summary>
+      <label class="field">Endereço<input id="emu-url" spellcheck="false" autocomplete="off"></label>
+      <button id="btn-emu" class="big">🖥️ Conectar no emulador</button>
+    </details>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> <span data-brand="company"></span></span>
+      <span id="brand-contact"></span>
+      <span class="muted">app <span id="app-version"></span></span>
+    </footer>
+  </section>
+
+  <!-- Tela de pilotagem -->
+  <section id="drive" class="screen">
+    <header class="topbar">
+      <button id="car-id" class="car-id" title="Toque para o Eco piscar">
+        <span id="conn-dot" class="dot"></span>
+        <span id="signal" class="signal s0" aria-label="Sinal"><i></i><i></i><i></i><i></i></span>
+        <span id="car-color" class="swatch"></span>
+        <span id="car-name">Eco</span>
+      </button>
+      <button id="class-chip" class="class-chip hidden"></button>
+      <div id="dist" class="pill">📏 — cm</div>
+      <!-- só aparecem os modos que a aula libera (com um só, a barra some) -->
+      <div id="modes" class="modes" role="group" aria-label="Modo de controle">
+        <button data-mode="tank">🎚️<span> Tanque</span></button>
+        <button data-mode="wheel">🛞<span> Volante</span></button>
+        <button data-mode="tilt">📱<span> Inclinar</span></button>
+        <button data-mode="program" data-recurso="programacao">🧩<span> Programar</span></button>
+        <button data-mode="line" data-recurso="seguidor" data-cap="line">🛤️<span> Seguidor</span></button>
+      </div>
+      <button id="btn-cena" class="icon hidden" aria-label="O que você montou?" title="O que você montou?">🧩</button>
+      <button id="btn-exit" class="icon hold" aria-label="Sair do Eco (segure)">⏏</button>
+    </header>
+    <!-- laboratório, explorador, bichinho: um painel por cima da pilotagem (cenario-ui.js) -->
+    <div id="cena-extra" class="cena-extra hidden"></div>
+
+    <main id="cockpit" class="cockpit" data-mode="tank">
+      <div class="zone zone-a">
+        <div id="lever-l" class="lever"><span class="arrow up">▲</span><span class="arrow down">▼</span><div class="knob"></div></div>
+        <div id="wheel" class="wheel"></div>
+        <div id="tilt" class="tilt">
+          <div id="tilt-wheel" class="wheel passive"></div>
+          <button id="btn-calibrate" class="small">🎯 Calibrar</button>
+          <p id="tilt-msg" class="msg"></p>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="lights">
+          <button id="btn-left" class="lb" data-light="left" data-feature="lights" data-cap="signals">⬅️<small>Seta</small></button>
+          <button id="btn-head" class="lb" data-light="headlight" data-feature="lights" data-cap="leds">💡<small>Farol</small></button>
+          <button id="btn-hazard" class="lb" data-light="hazard" data-feature="lights" data-cap="leds">⚠️<small>Alerta</small></button>
+          <button id="btn-right" class="lb" data-light="right" data-feature="lights" data-cap="signals">➡️<small>Seta</small></button>
+          <button id="btn-police" class="lb" data-light="police" data-feature="lights" data-cap="signals">🚨<small>Polícia</small></button>
+          <button id="btn-horn" class="lb horn" data-feature="horn">📯<small>Buzina</small></button>
+          <button id="btn-music" class="lb" data-feature="music">🎵<small>Música</small></button>
+        </div>
+        <div class="gauge" aria-hidden="true">
+          <svg viewBox="0 0 120 68">
+            <path d="M12 62 A48 48 0 0 1 108 62" class="g-track" pathLength="100"/>
+            <path id="g-fill" d="M12 62 A48 48 0 0 1 108 62" class="g-fill" pathLength="100"/>
+            <line id="g-needle" x1="60" y1="62" x2="60" y2="22" class="g-needle"/>
+            <circle cx="60" cy="62" r="5" class="g-hub"/>
+          </svg>
+          <span id="g-label"></span>
+        </div>
+        <div id="music-menu" class="menu hidden">
+          <label class="check small-check"><input type="checkbox" id="dance"> 💃 Dança de luzes</label>
+        </div>
+      </div>
+
+      <div class="zone zone-b">
+        <div id="lever-r" class="lever"><span class="arrow up">▲</span><span class="arrow down">▼</span><div class="knob"></div></div>
+        <div class="car-controls">
+          <button id="gear" class="gear">D<small>Frente</small></button>
+          <div id="pedal" class="pedal"><div class="fill"></div><span>⬆<br>Acelerar</span></div>
+        </div>
+      </div>
+
+      <!-- Modo programação -->
+      <div id="program" class="program">
+        <div class="palette-wrap">
+          <div class="pal-tabs" role="tablist"></div>
+          <div class="palette"></div>
+        </div>
+        <div class="prog-main">
+          <div id="mission-bar" class="mission-bar hidden">
+            <div class="mb-text"><b class="mb-title"></b> <span class="mb-stars"></span><small class="mb-goal"></small><small class="mb-hint"></small></div>
+            <button class="mb-check small">✔ Conferir</button>
+            <button class="mb-close small" aria-label="Sair da missão">✕</button>
+          </div>
+          <div class="track"></div>
+          <div class="prog-bar">
+            <button data-act="run" class="run">▶ Executar</button>
+            <button id="btn-prog-auto" class="hidden" title="Grava no Eco: roda sozinho, mesmo sem o celular, e liga junto com o Eco">⚙️ Gravar</button>
+            <button id="btn-volta-cena" class="hidden" title="Voltar para a tela do cenário">⬅ 🧩</button>
+            <button data-act="files" title="Meus programas">📂</button>
+            <button data-act="missions" title="Missões" data-feature="missions">🎯</button>
+            <button data-act="clear" title="Apagar todos os blocos">🗑</button>
+            <span class="prog-info muted"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modo seguidor de linha: o Eco segue a fita sozinho; a criança ajusta os sensores -->
+      <div id="line" class="line-panel">
+        <div class="ln-sensors" aria-label="Sensores de luz">
+          <div class="ln-sensor"><span id="ln-see-l" class="ln-see"></span><div class="ln-bar"><i id="ln-l"></i></div><small>Esquerdo</small></div>
+          <div class="ln-sensor"><span id="ln-see-r" class="ln-see"></span><div class="ln-bar"><i id="ln-r"></i></div><small>Direito</small></div>
+        </div>
+        <div class="ln-main">
+          <p id="ln-race" class="ln-race hidden"></p>
+          <p id="ln-status" class="ln-status">Coloque o Eco com a fita entre os dois sensores e toque em Andar.</p>
+          <div id="ln-time" class="ln-time">0,00 s</div>
+          <button id="ln-go" class="ln-go">▶ Andar</button>
+          <p id="ln-laps" class="ln-best"></p>
+          <p id="ln-best" class="ln-best"></p>
+        </div>
+        <details class="ln-help">
+          <summary>💡 Como ajustar os sensores</summary>
+          <p>As barrinhas mostram a luz que cada sensor recebe. Em cima da fita a barrinha sobe; fora dela, desce.
+            Quanto maior a diferença, melhor. Ajuste a <b>altura</b>, a <b>inclinação do LED</b> e a <b>distância
+            entre os sensores</b> (a fita tem que caber entre eles).</p>
+          <p>Ao tocar em Andar, o Eco dá uma reboladinha para aprender o claro e o escuro, apita e sai.</p>
+        </details>
+      </div>
+
+      <div id="banner" class="banner hidden"></div>
+      <div id="pause-overlay" class="overlay pause hidden">
+        <span id="pause-icon">⏸️</span>
+        <p id="pause-title">Pausa!</p>
+        <small id="pause-text">O professor pediu para parar os Ecos.</small>
+      </div>
+      <div id="overlay" class="overlay hidden">
+        <div class="spinner"></div>
+        <p id="overlay-text">Reconectando…</p>
+        <button id="btn-home" class="small">Voltar ao início</button>
+      </div>
+    </main>
+    <div id="toast" class="toast hidden"></div>
+  </section>
+
+  <!-- Programas salvos -->
+  <dialog id="prog-files">
+    <form method="dialog">
+      <h2>📂 Meus programas</h2>
+      <div class="pf-save"><input id="pf-name" maxlength="30" placeholder="Nome do programa" autocomplete="off">
+        <button type="button" id="pf-save" class="primary">💾 Salvar</button></div>
+      <ul id="pf-list" class="pick-list"></ul>
+      <div class="actions"><span class="spacer"></span><button value="close">Fechar</button></div>
+    </form>
+  </dialog>
+
+  <!-- Missões -->
+  <dialog id="missions">
+    <form method="dialog">
+      <h2>🎯 Missões</h2>
+      <p class="hint">Escolha uma missão, monte o programa e rode no Eco para ganhar as estrelas.</p>
+      <ul id="ms-list" class="pick-list missions-list"></ul>
+      <div class="actions"><span class="spacer"></span><button value="close">Fechar</button></div>
+    </form>
+  </dialog>
+
+  <!-- Lista de Ecos do emulador (no Bluetooth real quem mostra é o próprio Chrome) -->
+  <!-- Cenário maquete (casinha, cidade, girassol…): cada porta comandada (cenario-ui.js; documentos/cenarios.md) -->
+  <section id="cena" class="screen cena">
+    <header class="topbar">
+      <span id="cena-titulo" class="cena-titulo"></span>
+      <span class="spacer"></span>
+      <button id="cena-prog" class="cena-prog" title="Programar o cenário com blocos">🧩 Programar</button>
+      <button id="cena-trocar" class="icon" aria-label="O que você montou?" title="O que você montou?">🔁</button>
+      <button id="cena-sair" class="icon hold" aria-label="Sair (segure)">⏏</button>
+    </header>
+    <main class="cena-main">
+      <div id="cena-arte" class="cena-arte"></div>
+      <div class="cena-lado">
+        <div id="cena-controles" class="cena-controles"></div>
+        <div id="cena-sensores" class="cena-sensores"></div>
+        <div id="cena-auto" class="cena-auto"></div>
+      </div>
+    </main>
+  </section>
+
+  <dialog id="cena-pick" class="cena-pick">
+    <h2 id="cena-pick-titulo">O que você montou?</h2>
+    <p id="cena-pick-msg" class="muted"></p>
+    <div id="cena-lista" class="cena-lista"></div>
+    <div class="actions"><span class="spacer"></span><button id="cena-pick-fechar">Fechar</button></div>
+  </dialog>
+
+  <dialog id="picker">
+    <h2>Escolha o seu Eco</h2>
+    <p class="muted">Kits livres por perto (o número e a cor estão na placa)</p>
+    <div id="picker-list" class="picker-list"></div>
+    <p id="picker-empty" class="msg">Procurando Ecos…</p>
+    <div class="actions"><span class="spacer"></span><button id="picker-cancel">Cancelar</button></div>
+  </dialog>
+
+  <!-- Entrar na sala de aula (quando não veio pelo QR) -->
+  <dialog id="class-dialog">
+    <form method="dialog">
+      <h2>🏫 Entrar na sala</h2>
+      <label class="field">Código da sala (o professor mostra)<input id="c-code" inputmode="numeric" maxlength="4" autocomplete="off"></label>
+      <details class="faq-lite"><summary>Avançado</summary>
+        <label class="field">Endereço da sala<input id="c-url" spellcheck="false" autocomplete="off"></label>
+      </details>
+      <div class="actions">
+        <button value="cancel">Cancelar</button>
+        <span class="spacer"></span>
+        <button value="join" class="primary">Entrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Quem é você? (lista da turma, ou o nome digitado numa aula sem lista) -->
+  <dialog id="roster" class="roster">
+    <h2>👋 Quem é você?</h2>
+    <p id="ro-class" class="muted"></p>
+    <button id="ro-suggest" class="big primary hidden"></button>
+    <div id="ro-list" class="ro-list"></div>
+    <form id="ro-free" class="ro-free hidden">
+      <input id="ro-name" maxlength="24" placeholder="Seu nome" autocomplete="off" required>
+      <button class="primary">Entrar</button>
+    </form>
+    <div class="actions"><span class="spacer"></span><button id="ro-cancel" type="button">Agora não</button></div>
+  </dialog>
+
+  <!-- Mensagem do professor -->
+  <div id="teacher-msg" class="teacher-msg hidden"><p></p><small>toque para fechar</small></div>
+  <div id="confira" class="confira hidden" role="status"><b>🔌 Confira as peças</b><ul></ul><button type="button">OK</button></div>
+
+  <div id="rotate"><span>📱</span><p>Gire o celular para o lado</p></div>
+
+  <script type="module" src="js/sair-da-pagina.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/ajustes.js"></script>
+</body>
+</html>
