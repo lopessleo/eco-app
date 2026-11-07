@@ -5,12 +5,27 @@ import { DEFAULT_LESSON, normalizeLesson, sameLesson } from './lesson.js';
 import { RECURSO_DO_MODO, recursoLigado } from './recursos.js';
 import { S, CAP_DA_TELA, emit, on, temCap } from './state.js';
 import { prefs } from './prefs.js';
-import { $ } from './util.js';
+import { $, params } from './util.js';
 
-// modos de recursos desligados para este cliente (app/recursos.json) nunca aparecem; sobra pelo menos o tanque
+// botão de modo escondido no Estúdio (ajustes.css): a classe .hidden é nossa, por isso não conta. No ?preview vale tudo
+// (é por ali que o Estúdio abre cada tela para editar)
+function escondidoNoEstudio(modo) {
+  const b = document.querySelector(`#modes [data-mode="${modo}"]`);
+  if (!b || params.has('preview')) return false;
+  const tinha = b.classList.contains('hidden');
+  b.classList.remove('hidden');
+  const escondido = getComputedStyle(b).display === 'none';
+  b.classList.toggle('hidden', tinha);
+  return escondido;
+}
+
+// modos de recursos desligados para este cliente (app/recursos.json) nunca aparecem; sobra pelo menos o tanque.
+// Os escondidos no Estúdio saem também, menos se a aula só tiver eles (ex.: competição, só com o Seguidor)
 export function effectiveLesson() {
   const l = normalizeLesson(S.policy.lesson ?? S.carLesson ?? DEFAULT_LESSON);
-  const modes = l.modes.filter((m) => recursoLigado(RECURSO_DO_MODO[m] ?? m) && (m !== 'line' || temCap(CAP_DA_TELA.line)));
+  const liberados = l.modes.filter((m) => recursoLigado(RECURSO_DO_MODO[m] ?? m) && (m !== 'line' || temCap(CAP_DA_TELA.line)));
+  const visiveis = liberados.filter((m) => !escondidoNoEstudio(m));
+  const modes = visiveis.length ? visiveis : liberados;
   return modes.length === l.modes.length ? l : { ...l, modes: modes.length ? modes : ['tank'] };
 }
 

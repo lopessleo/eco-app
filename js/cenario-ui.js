@@ -317,6 +317,11 @@ function desenhaExtra() {
   const tem = ['laboratorio', 'explorador', 'bichinho', 'desenhista'].includes(c.id) && document.body.classList.contains('driving');
   box.classList.toggle('hidden', !tem);
   if (!tem) return;
+  // pilotando, o painel fica na coluna do meio, no lugar do conta-giros: por cima do acelerador, o Eco não andava.
+  // Programar e Seguidor não têm essa coluna: ele fica solto no canto
+  const meio = document.querySelector('.center');
+  const lugar = getComputedStyle(meio).display === 'none' ? $('#drive') : meio;
+  if (box.parentElement !== lugar) lugar.append(box);
   const s = S.sensores;
   if (!s) {
     box.textContent = `${c.emoji} esperando o Eco…`;

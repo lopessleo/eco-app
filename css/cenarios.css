@@ -44,6 +44,12 @@
 .cena-extra svg { width: 100%; height: auto; display: block; margin-top: 6px; background: var(--panel); border-radius: 8px; }
 .cena-extra .cara { font-size: 64px; text-align: center; line-height: 1.1; }
 .cena-extra small { display: block; text-align: center; color: var(--muted); }
+/* pilotando: na coluna do meio, sem cobrir o volante nem o acelerador (cenario-ui.js) */
+.center:has(> .cena-extra:not(.hidden)) { min-height: 0; }
+.center:has(> .cena-extra:not(.hidden)) .gauge { display: none; }
+.center > .cena-extra { position: static; flex: 0 1 auto; align-self: center; width: min(100%, 320px); min-height: 0; overflow-y: auto; }
+.center > .cena-extra svg { max-height: 40dvh; }
+.center:has(> .lights.hidden) > .cena-extra svg { max-height: 62dvh; }
 
 @media (max-width: 720px), (orientation: portrait) {
   .cena-main { grid-template-columns: minmax(0, 1fr); }
