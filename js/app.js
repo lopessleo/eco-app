@@ -17,6 +17,10 @@ import './line.js';
 import './programming.js';
 import './home.js';
 import './cenario-ui.js';
+import './aviso-atualizacao.js';
+import './caixa-preta.js';
+import './atualizador.js';
+import './ajustes-eco.js';
 
 // ---------- Inicialização ----------
 

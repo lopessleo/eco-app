@@ -120,12 +120,12 @@ function applyPolicy(left, right, flags) {
 }
 
 setInterval(() => {
-  if (!S.transport?.connected || S.upload) return;
+  if (!S.transport?.connected || S.upload || S.atualizando || S.ajustando) return; // o atualizador e os ajustes mandam os comandos
   // no modo programação e no seguidor quem dirige é o Eco: o DRIVE vai parado (é o "estou aqui")
   const [l, r] = computeMotors();
   let [left, right, flags] = applyPolicy(l, r, driveFlags());
   if ((INVERTE || TROCA) && S.car?.config.autoBrake !== false && S.carState) {
-    [left, right] = P.freioNoApp(left, right, S.carState.distance, (S.car?.config.brakeDist ?? 20) + FOLGA_FREIO_CM);
+    [left, right] = P.freioNoApp(left, right, S.carState.distance, (S.car?.config.brakeDist ?? P.DEFAULT_CONFIG.brakeDist) + FOLGA_FREIO_CM);
   }
   const [ml, mr] = P.inverteMotores(TROCA ? right * 100 : left * 100, TROCA ? left * 100 : right * 100, INVERTE);
   S.transport.send(P.encodeDrive({ seq: seq++, left: ml, right: mr, flags }));
